@@ -14,6 +14,7 @@ let private cdn resource id hash =
 [<AutoOpen>]
 module Scopes =
     let [<Literal>] IDENTIFY = "identify"
+    let [<Literal>] GUILDS = "guilds"
     
 type User = {
     Id: Snowflake
@@ -30,6 +31,14 @@ type User = {
     /// The accent color as an HTML hex code like #ABCDEF
     member this.HexColor () = map (sprintf "#%06x") this.AccentColor
 
+type PartialGuild = {
+    Id: Snowflake
+    Name: string
+    Owner: bool
+    Permissions: Int64
+    Features: string Set
+}
+
 /// REST API client
 type Discord (auth: OAuth2) =
     inherit WebAPI(auth)
@@ -40,3 +49,7 @@ type Discord (auth: OAuth2) =
     /// The currently authorized user
     [<RequiresScopes(IDENTIFY)>]
     member this.Me (): User Call = this.Get "users/@me" ()
+
+    /// Guilds that the current user is a member of
+    [<RequiresScopes(GUILDS)>]
+    member this.Guilds (): PartialGuild list Call = this.Get "users/@me/guilds" ()

@@ -1,41 +1,51 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>net.dunkyl</RootNamespace>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <FSharpPreferNetFrameworkTools>True</FSharpPreferNetFrameworkTools>
-    <AssemblyName>SlyDiscord</AssemblyName>
-    <PackageId>net.dunkyl.$(AssemblyName)</PackageId>
-    <Title>SlyDiscord</Title>
-    <Version>$(VersionPrefix)0.0.1</Version>
-    <Authors>dunkyl</Authors>
-    <Description>Discord REST API client</Description>
-    <PackageProjectUrl>https://github.com/dunkyl/SlyDiscord</PackageProjectUrl>
-    <PackageIcon>sly logo f#.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/dunkyl/SlyDiscord</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<RootNamespace>net.dunkyl</RootNamespace>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<FSharpPreferNetFrameworkTools>True</FSharpPreferNetFrameworkTools>
+		<AssemblyName>SlyDiscord</AssemblyName>
+		<PackageId>net.dunkyl.$(AssemblyName)</PackageId>
+		<Title>SlyDiscord</Title>
+		<Version>$(VersionPrefix)0.0.1</Version>
+		<Authors>dunkyl</Authors>
+		<Description>Discord REST API client</Description>
+		<PackageProjectUrl>https://github.com/dunkyl/SlyDiscord-FSharp</PackageProjectUrl>
+		<PackageIcon>sly logo f#.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/dunkyl/SlyDiscord-FSharp</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 
-  <ItemGroup>
-    <Compile Include="Library.fs" />
-  </ItemGroup>
+		<!-- FsDocs Properties -->
 
-  <ItemGroup>
-    <None Include="..\..\SlyMeta\sly logo f#.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+		<FsDocsLicenseLink>https://github.com/dunkyl/SlyDiscord-FSharp/blob/main/LICENSE.txt</FsDocsLicenseLink>
+		<FsDocsReleaseNotesLink>https://github.com/dunkyl/SlyDiscord-FSharp/blob/main/CHANGELOG.md</FsDocsReleaseNotesLink>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="net.dunkyl.SlyAPI" Version="0.0.5" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="Library.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="docs/**" />
+		<None Include="CHANGELOG.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\SlyMeta\sly logo f#.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="net.dunkyl.SlyAPI" Version="0.0.5" />
+	</ItemGroup>
 
 </Project>
